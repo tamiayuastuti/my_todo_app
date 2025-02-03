@@ -172,5 +172,5 @@
                 </div>
             </div>
         </div>
-    </body>
+    </body> <!--div di gunakan untuk membungkus suatu isi halaman-->
 </html>
