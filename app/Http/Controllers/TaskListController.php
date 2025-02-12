@@ -7,21 +7,29 @@ use Illuminate\Http\Request;
 
 class TaskListController extends Controller
 {
-    public function store(Request $request) {
+    public function store(Request $request) { 
+        // sebuah metode controller yang di gunakan untuk menanggani permintaan request 
         $request->validate([
-            'name' => 'required|max:100'
+        // digunakan untuk memvalidasi data-data     
+            'name' => 'required|max:100' 
         ]);
 
         TaskList::create([
+        // digunakan untuk membuat tasklist
+        // mambuat tasklist berdasarkan nama    
             'name' => $request->name
         ]);
 
         return redirect()->back();
+        // digunakan untuk mengembalikan ke halaman awal 
     }
 
     public function destroy($id) {
+    // untuk mengapus berdasarkan $id tasklist     
         TaskList::findOrFail($id)->delete();
+        // untuk memastikan user menghapus data atau tidak
 
         return redirect()->back();
+        // untuk mengembalikan ke halaman awal
     }
 }

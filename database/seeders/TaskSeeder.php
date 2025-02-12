@@ -1,18 +1,20 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders; 
+//namespace adalah cara utuk mengelompokan kelas agar tidak terjadi konflik nama antara kelas yang berbeda dalam suatu project
+//database seeder adalah namespace default yang di gunakan untuk semua kelas seeder di laravel
 
-use App\Models\Task;
-use App\Models\TaskList;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
+use App\Models\Task; //untuk menginfor model task yang berada didalam direktory app/models/task.php
+use App\Models\TaskList; // use:menggunkan ,digunkan untuk menginfor semua model tasklist di semua folder
+use Illuminate\Database\Console\Seeds\WithoutModelEvents; //kode ini berfungsi untuk menonaktifkan event model saat menjalankan seeder
+use Illuminate\Database\Seeder; //di gunakan untuk menginfor file yang ada didalam kelas seeder 
 
-class TaskSeeder extends Seeder
+class TaskSeeder extends Seeder 
 {
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(): void // digunakan untuk menentukan data apa yang akan di masukan kedalam database
     {
         $tasks = [
             [
@@ -66,6 +68,8 @@ class TaskSeeder extends Seeder
             ],
         ];
 
-        Task::insert($tasks);
+        Task::insert($tasks);  
+        //Tasklist merujuk pada model yang beruhubungan dengan tabel task di database
+        //insert lists di gunakan untuk menambahkan beberapa data kedalam datbase
     }
 }
