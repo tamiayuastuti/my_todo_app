@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="content" class="container pb-3">
-        <div class="d-flex aligh-items-center justify-content center">
-            <a href="{{ route('home') }}" class="btn btn-sm fw-bold fs-4">
-                <i class="bi bi-arrow-left-short"></i>
-                kembali
+    <div id="content" class="container">
+        <div class="d-flex align-items-center">
+            <a href="{{ route('home') }}" class="btn btn-sm">
+                <i class="bi bi-arrow-left-short fs-4"></i>
+                <span class="fw-bold fs-5">Kembali</span>
             </a>
         </div>
 
@@ -14,21 +14,22 @@
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        @endsession
-        <div class="row">
+        @endsession
+
+        <div class="row my-3">
             <div class="col-8">
-                <div class="card" style="height: 80vh; max-height: 80vh;">
-                    {{-- kode untuk ukuran lebar panjangnya --}}
-                    <div class="card-header d-flex align items center justify-content-between overflow-hidden">
-                        <h3 class="fw-bold fs-4 text-truncate" style="max-width: 80%;">{{ $task->name }}
-                            <span class="fs-6 fw-medium"> 
+                <div class="card" style="height: 80vh;">
+                    <div class="card-header d-flex align-items-center justify-content-between overflow-hidden">
+                        <h3 class="fw-bold fs-4 text-truncate mb-0" style="width: 80%">
+                            {{ $task->name }}
+                            <span class="fs-6 fw-medium">
                                 di {{ $task->list->name }}
                             </span>
                         </h3>
                         <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
                             data-bs-target="#editTaskModal">
                             <i class="bi bi-pencil-square"></i>
-                        </button>
+                        </button>
                     </div>
                     <div class="card-body">
                         <p>
@@ -36,10 +37,10 @@
                         </p>
                     </div>
                     <div class="card-footer">
-                        <form action=" {{ route('tasks.destroy', $task->id) }}" method="POST">
+                        <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-outline-danger w-100">  {{--btn-sm untuk ukuran  --}}
+                            <button type="submit" class="btn btn-outline-danger w-100">
                                 Hapus
                             </button>
                         </form>
@@ -47,11 +48,10 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="card" style="height: 80vh; max-height: 80vh;">
+                <div class="card" style="height: 80vh;">
                     <div class="card-header d-flex align-items-center justify-content-between overflow-hidden">
-                    <Details class="fw-bold fs-4 text-truncate mb-0" 
-                    style="width:80%">Details"</h3>
-                    <div class="card"></div>
+                        <h3 class="fw-bold fs-4 text-truncate mb-0" style="width: 80%">Details</h3>
+                    </div>
                     <div class="card-body d-flex flex-column gap-2">
                         <form action="{{ route('tasks.changeList', $task->id) }}" method="POST">
                             @csrf
@@ -70,10 +70,11 @@
                                 {{ $task->priority }}
                             </span>
                         </h6>
-                    </div>    
+                    </div>
                 </div>
             </div>
         </div>
+
         <div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="editTaskModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <form action="{{ route('tasks.update', $task->id) }}" method="POST" class="modal-content">
@@ -109,6 +110,6 @@
                     </div>
                 </form>
             </div>
-        </div>  
+        </div>
     </div>
 @endsection
