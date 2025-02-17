@@ -14,7 +14,7 @@
                         placeholder="Masukkan nama list">
                 </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer">{{--Membungkus bagian footer dari modal,yaitu area di bagian bawah modal tempat tombol berada. --}}
                 <button type="button" class="btn btn-primary-subtle" data-bs-dismiss="modal">Batal</button>
                 <button type="submit" class="btn btn-primary ">Tambah</button>
             </div>

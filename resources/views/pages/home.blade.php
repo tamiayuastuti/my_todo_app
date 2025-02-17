@@ -1,6 +1,8 @@
+
 @extends('layouts.app')
 
 @section('content') 
+
 <style>
     /* ====== Background Styling dengan Efek Paralaks ====== */
     #content {
