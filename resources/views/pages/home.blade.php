@@ -4,7 +4,7 @@
 <style>
     /* ====== Background Styling dengan Efek Paralaks ====== */
     #content {
-        background: url('{{ asset('images/background.jpg') }}') center/cover fixed no-repeat;
+        background: url('{{ asset('images/bg1.jpg') }}') center/cover fixed no-repeat;
         color: white;
         /*  Mengatur teks tombol menjadi warna putih agar kontras dengan latar belakang gradient.*/
         min-height: 100vh;
@@ -103,8 +103,8 @@
         @endif
         <div class="d-flex gap-3 px-3 flex-nowrap overflow-x-scroll overflow-y-hidden" style="height: 100vh;">
             @foreach ($lists as $list)
-                <div class="card flex-shrink-0 bg-" style="width: 18rem; max-height: 80vh;"> {{--bg-info untuk merubah warna tabel--}}
-                    <div class="card-header bg-warning-subtle text-warning d-flex align-items-center justify-content-between"> {{-- untuk merubah warna judul // merubah warna text --}}
+                <div class="card flex-shrink-0 bg-primary-subtle" style="width: 18rem; max-height: 80vh;"> {{--bg-info untuk merubah warna tabel--}}
+                    <div class="card-header bg-primary text-white d-flex align-items-center justify-content-between"> {{-- untuk merubah warna judul // merubah warna text --}}
                         <h4 class="card-title">{{ $list->name }}</h4>
                         <form action="{{ route('lists.destroy', $list->id) }}" method="POST" style="display: inline;">
                             @csrf
@@ -150,7 +150,7 @@
                                             <form action="{{ route('tasks.complete', $task->id) }}" method="POST">
                                                 @csrf
                                                 @method('PATCH')
-                                                <button type="submit" class="btn btn-sm btn- bg-warning w-100"> {{--untuk merubah warna selesai --}}
+                                                <button type="submit" class="btn btn-sm btn- bg-primary text-white w-100"> {{--untuk merubah warna selesai --}}
                                                     <span class="d-flex align-items-center justify-content-center">
                                                         <i class="bi bi-check fs-5"></i>
                                                         Selesai
@@ -162,7 +162,7 @@
                                 </div>
                             @endif
                         @endforeach
-                        <button type="button" class="btn btn-sm btn-outline-warning " data-bs-toggle="modal"
+                        <button type="button" class="btn btn-sm btn-outline-primary " data-bs-toggle="modal"
                             data-bs-target="#addTaskModal" data-list="{{ $list->id }}">
                             <span class="d-flex align-items-center justify-content-center">
                                 <i class="bi bi-plus fs-5"></i>
@@ -175,7 +175,7 @@
                     </div>
                 </div>
                 @endforeach
-                <button type="button" class="btn btn-outline-warning flex-shrink-0" style="width: 13rem; height: fit-content;" 
+                <button type="button" class="btn btn-outline-primary flex-shrink-0" style="width: 13rem; height: fit-content;" 
                     data-bs-toggle="modal" data-bs-target="#addListModal">
                     <span class="d-flex align-items-center justify-content-center">
                         <i class="bi bi-plus fs-5"></i>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-warning navbar-dark fixed-top"> <!--navclass di gunakan untuk membungkus tampilan navbar,
+<nav class="navbar navbar-expand-lg bg-primary navbar-dark fixed-top"> <!--navclass di gunakan untuk membungkus tampilan navbar,
 navbar expand-lg di gunkan untuk membuat tampilan navbar menjadi responsip,
 bg-primary di gunakan untuk mewarnai bg navbar menjadi berwarna biru 
 navbar dark di gunkan untuk membuat text navbar berwarna hitam

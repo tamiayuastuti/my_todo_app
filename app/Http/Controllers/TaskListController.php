@@ -18,6 +18,7 @@ class TaskListController extends Controller
         // digunakan untuk membuat tasklist
         // mambuat tasklist berdasarkan nama    
             'name' => $request->name
+            //digunakan untuk mengambil data yang dikirimkan melalui form (atau request) dengan nama name, dan menyimpannya dalam array dengan key 'name'.
         ]);
 
         return redirect()->back();

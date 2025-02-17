@@ -3,7 +3,7 @@
         <form action="{{ route('lists.store') }}" method="POST" class="modal-content"> <!-- from action di gunakan  untuk mengarahkan data ke validasi store -->
             @method('POST')
             @csrf
-            <div class="modal-header bg-warning">
+            <div class="modal-header bg-primary-subtle">
                 <h1 class="modal-title fs-5" id="addListModalLabel">Tambah List</h1><!---->
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -15,8 +15,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-warning-subtle" data-bs-dismiss="modal">Batal</button>
-                <button type="submit" class="btn btn-warning ">Tambah</button>
+                <button type="button" class="btn btn-primary-subtle" data-bs-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary ">Tambah</button>
             </div>
         </form>
     </div>
