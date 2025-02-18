@@ -8,7 +8,7 @@
 
     <title>{{ $title }} - {{ config('app.name') }}</title> 
 
-    <!-- Import bootstrap CSS -->>
+    <!-- Import bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap-icons/font/bootstrap-icons.min.css') }}"> <!--script untuk memanggil css -->
 </head>

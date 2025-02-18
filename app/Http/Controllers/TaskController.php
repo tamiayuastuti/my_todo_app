@@ -1,5 +1,5 @@
 <?php
-//fungsi:taskcontroller digunkan untuk menampilkan daftar tugas,menambah tugas baru,mengedit tugas menandai tugas selesai dan menghapus tugas
+
 namespace App\Http\Controllers;
 
 use App\Models\Task;
@@ -8,55 +8,92 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function index()
-    { // berfungsi untuk mengambil data dari database 
-        $data = [ // 
+    public function index(Request $request)
+    {
+        $query = $request->input('query');
+
+        if ($query) {
+            $tasks = Task::where('name', 'like', "%{$query}%")
+                ->orWhere('description', 'like', "%{$query}%")
+                ->latest()
+                ->get();
+
+            $lists = TaskList::where('name', 'like', "%{$query}%")
+                ->orWhereHas('tasks', function ($q) use ($query) {
+                    $q->where('name', 'like', "%{$query}%")
+                        ->orWhere('description', 'like', "%{$query}%");
+                })
+                ->with('tasks')
+                ->get();
+
+
+            if ($tasks->isEmpty()) {
+                $lists->load('tasks');
+            } else {
+                $lists->load(['tasks' => function ($q) use ($query) {
+                    $q->where('name', 'like', "%{$query}%")
+                        ->orWhere('description', 'like', "%{$query}%");
+                }]);
+            }
+        } else {
+            $tasks = Task::latest()->get();
+            $lists = TaskList::with('tasks')->get();
+        }
+
+        $data = [
             'title' => 'Home',
-            'lists' => TaskList::all(), //list untuk mengambil semua yang ada di dalam database 
-            'tasks' => Task::orderBy('created_at', 'desc')->get(), // mendapatkan data task yang nantinya akan di buat berurutan sesuai urutan descending
-            //desceding dari besar ke kecil
-            //ascending dari kecil ke besar
-            'priorities' => Task::PRIORITIES // digunakan untuk mengambil data prioritis/prioritas di database
+            'lists' => $lists,
+            'tasks' => $tasks,
+            'priorities' => Task::PRIORITIES
         ];
 
-        return view('pages.home', $data); //return view:kembali ke halaman home ,setelah mengambil data akan di arahkan ke halaman home
+        return view('pages.home', $data);
     }
 
+    public function about()
+    {
+        $data = [
+            'title' => 'About Me',
+        ];
+
+        return view('pages.about', $data);
+    }
+
+
     public function store(Request $request)
-    {  // digunakan untuk menyimpan data baru kedalam database 
-        $request->validate([                   // digunakan untuk memvalidasi data yang di kirim oleh pengguna 
-            'name' => 'required|max:100', // required:wajib di isi // max:100 tidak lebih dari 100 huruf
-            'deskripsi' => 'max:255',
-            'priority' => 'required|in:low,medium,high',
-            'list_id' => 'required' // list_id adalah id tambahan // required:wajib di isi
+    {
+        $request->validate([
+            'name' => 'required|max:100',
+            'description' => 'max:255',
+            'list_id' => 'required'
         ]);
 
-        Task::create([ // membuat tugas baru
+        Task::create([
             'name' => $request->name,
-            'description' => $request->deskripsi,
-            'priority' => $request->priority,
+            'description' => $request->description,
             'list_id' => $request->list_id
         ]);
 
 
-        return redirect()->back(); // setelah menambahkan data task akan di arahkan kembali ke halaman home
+        return redirect()->back();
     }
 
     public function complete($id)
-    {  // fungsinya untuk membuat status tugas selesai
-        Task::findOrFail($id)->update([  // find or fail di gunain tugasnya selesai apa belum
-            'is_completed' => true // tugas selesai 
+    {
+        Task::findOrFail($id)->update([
+            'is_completed' => true
         ]);
 
         return redirect()->back();
     }
 
     public function destroy($id)
-    {  // digunakan untuk menghapus tugas berdasarkan id
+    {
         Task::findOrFail($id)->delete();
 
-        return redirect()->back();
+        return redirect()->route('home');
     }
+
     public function show($id)
     {
         $data = [
@@ -80,6 +117,7 @@ class TaskController extends Controller
 
         return redirect()->back()->with('success', 'List berhasil diperbarui!');
     }
+
     public function update(Request $request, Task $task)
     {
         $request->validate([
