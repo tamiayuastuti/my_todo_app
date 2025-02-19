@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 class TaskController extends Controller
 {
     public function index(Request $request)
+    //public Menunjukkan bahwa metode ini bisa diakses dari luar kelas, yaitu ketika route memanggilnya.
+    //function index Metode bernama index() ini biasanya digunakan untuk menampilkan daftar data. Dalam konvensi Laravel, metode index() sering digunakan dalam CRUD untuk menampilkan semua data.
+    //(Request $request)Request adalah kelas yang digunakan untuk menangani data dari permintaan HTTP (GET, POST, dsb.).
+    //$request adalah objek yang membawa semua data yang dikirim dari pengguna, seperti query string, form input, dll.
     {
         $query = $request->input('query');
 
