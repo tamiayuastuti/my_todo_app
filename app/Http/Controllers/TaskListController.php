@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\TaskList;
 use Illuminate\Http\Request;
 
-class TaskListController extends Controller
+class TaskListController extends Controller //tasklistcontroller untuk deskripsi tugas
 {
     public function store(Request $request)
     {

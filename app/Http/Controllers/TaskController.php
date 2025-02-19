@@ -6,7 +6,7 @@ use App\Models\Task;
 use App\Models\TaskList;
 use Illuminate\Http\Request;
 
-class TaskController extends Controller
+class TaskController extends Controller //task controller untuk judul tugas
 {
     public function index(Request $request)
     //public Menunjukkan bahwa metode ini bisa diakses dari luar kelas, yaitu ketika route memanggilnya.

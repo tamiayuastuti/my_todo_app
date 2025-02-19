@@ -5,7 +5,7 @@ use App\Http\Controllers\TaskListController;
 use Illuminate\Support\Facades\Route;
 
 // Membuat route untuk home
-Route::get('/', [TaskController::class, 'index'])->name('home');
+Route::get('/', [TaskController::class, 'index'])->name('home'); //untuk url -> http://127.0.0.1:8000/
 
 
 Route::resource('lists', TaskListController::class);
