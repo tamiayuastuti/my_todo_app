@@ -6,7 +6,7 @@
 <style>
     /* ====== Background Styling dengan Efek Paralaks ====== */
     #content {
-        background: url('{{ asset('images/tami.jpg') }}') center/cover fixed no-repeat;
+        background: url('{{ asset('assests/images/bg1.jpg') }}') center/cover fixed no-repeat;
         color: white;
         /*  Mengatur teks tombol menjadi warna putih agar kontras dengan latar belakang gradient.*/
         min-height: 100vh;
@@ -187,7 +187,7 @@
             </div>
         </div> 
        
-        <footer class="bg-primary text-white text-center py-3 mt-4">
+        <footer class="bg-primary text-white text-center py-2 mt-2">
             <p>&copy; {{ date('Y') }} By. Tami Ayu Astuti.</p>
             <div>
                 <a href="https://www.instagram.com/oceanpinksyy?igsh=MXZpdzExczNmODl6Yg=="><i class="bi bi-instagram fs-3 mx-3 text-dark"></i></a>

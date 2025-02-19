@@ -36,22 +36,22 @@
 
 <body>
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand bg-primary navbar-dark sticky-top px-4 py-0">
-        <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-            <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
-        </a>
+    <nav class="navbar navbar-expand-lg bg-primary-subtle text-secondary">
         <a href="#" class="sidebar-toggler flex-shrink-0">
             <i class="fa fa-bars"></i>
         </a>
         <div class="row my-3">
-            <div class="col-10 mx-auto">
+            <div class="col-100 mx-auto">
                 <form action="{{ route('home') }}" method="GET" class="d-flex gap-2">
                     <input type="text" class="form-control" name="query" placeholder="Cari tugas atau list..."
                         value="{{ request()->query('query') }}">
-                    <button type="submit" class="btn btn-outline-white text-white"><i class="bi bi-search-heart"></i></button>
+                    <button type="submit" class="btn btn-outline-white text-dark"><i class="bi bi-search-heart"></i></button>
                 </form>
             </div>
         </div>
+            <div class="container d-flex justify-content-center">
+                <a class="navbar-brand fw-bolder" href="#">{{ config('app.name') }}</a>
+           </div>
 
         <div class="navbar-nav align-items-center ms-auto">
             <div class="navbar-nav align-items-center ms-auto">
@@ -61,7 +61,7 @@
                             <!-- Indikator notifikasi baru (titik merah) -->
                             <span id="notificationBadge" class="notification-badge"></span>
                         </i>
-                        <span class="d-none d-lg-inline-flex text-white">Notifikasi</span>
+                        <span class="d-none d-lg-inline-flex text-dark">Notifikasi</span>
                     </a>
                     <div id="notificationDropdown"
                         class="dropdown-menu dropdown-menu-end bg-primary-subtle text-black border-primary-subtle border-7 border-color rounded-3 rounded-bottom m-0">
@@ -78,9 +78,9 @@
             </div>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                    <img class="rounded-circle me-lg-2" src="assests/images/bg1.jpg" alt=""
+                    <img class="rounded-circle me-lg-2" src="assests/images/mii.jpg" alt=""
                         style="width: 40px; height: 40px" />
-                    <span class="d-none d-lg-inline-flex text-white">Tami Ayu Astuti</span>
+                    <span class="d-none d-lg-inline-flex text-dark">Tami Ayu Astuti</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                     <a href="{{ route('about') }}">My Profile</a>
@@ -115,6 +115,7 @@
         document.getElementById("bellIcon").addEventListener("click", function() {
             hideNotificationBadge(); // Menghilangkan titik merah ketika ikon lonceng diklik
         });
+        
     </script>
 
 </body>

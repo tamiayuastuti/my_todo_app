@@ -49,7 +49,7 @@
             </div>
             <div class="col-4">
                 <div class="card" style="height: 80vh;">
-                    <div class="card-header d-flex align-items-center justify-content-between overflow-hidden">
+                    <div class="card-header d-flex align-items-center justify-content-between overflow-hidden bg-primary-subtle">
                         <h3 class="fw-bold fs-4 text-truncate mb-0" style="width: 80%">Details</h3>
                     </div>
                     <div class="card-body d-flex flex-column gap-2">
@@ -80,8 +80,8 @@
                 <form action="{{ route('tasks.update', $task->id) }}" method="POST" class="modal-content">
                     @method('PUT')
                     @csrf
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="editTaskModalLabel">Edit Task</h1>
+                    <div class="modal-header bg">
+                        <h1 class="modal-title fs-5 " id="editTaskModalLabel">Edit Task</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
