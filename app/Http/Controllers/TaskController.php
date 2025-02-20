@@ -113,6 +113,9 @@ class TaskController extends Controller //task controller untuk judul tugas
     }
 
     public function changeList(Request $request, Task $task)
+    //public function changeList → Method yang bisa diakses secara publik.
+    //Request $request → Parameter untuk menangkap data yang dikirim oleh pengguna
+    //Task $task → Model Task, yang otomatis mengambil data task berdasarkan ID yang diberikan.
     {
         $request->validate([
             'list_id' => 'required|exists:task_lists,id',
@@ -126,6 +129,9 @@ class TaskController extends Controller //task controller untuk judul tugas
     }
 
     public function update(Request $request, Task $task)
+    //public function update → Method yang dapat diakses secara publik.
+    //Request $request → Menangkap data yang dikirim oleh pengguna melalui form atau API.
+    //Task $task → Model Task, yang otomatis mengambil data task berdasarkan ID yang diberikan.
     {
         $request->validate([
             'list_id' => 'required',
