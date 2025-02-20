@@ -9,12 +9,15 @@
             </a>
         </div>
 
-        @session('success')
+        @session('success')  
+        {{--@session('success') adalah cara dalam Blade untuk menampilkan pesan yang disimpan di session Laravel. --}}
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endsession
+        {{-- @endsession digunakan untuk menutup blok @session dalam Blade template Laravel.
+             Namun, @session dan @endsession bukan sintaks resmi Laravel. Kemungkinan yang dimaksud adalah @if (session('success')) atau @section. --}}
 
         <div class="row my-3">
             <div class="col-8">
@@ -47,7 +50,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-4"> {{--col-4 adalah kelas dari Bootstrap yang digunakan dalam sistem grid untuk mengatur lebar kolom dalam sebuah baris (row). --}}
                 <div class="card" style="height: 80vh;">
                     <div class="card-header d-flex align-items-center justify-content-between overflow-hidden bg-primary-subtle">
                         <h3 class="fw-bold fs-4 text-truncate mb-0" style="width: 80%">Details</h3>
