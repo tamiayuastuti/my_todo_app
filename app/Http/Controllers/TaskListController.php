@@ -22,10 +22,14 @@ class TaskListController extends Controller //tasklistcontroller untuk deskripsi
             ->with('newTaskList', $list); // Kirim data task list baru
     }
 
-    public function destroy($id)
+    public function destroy($id)//public function destroy($id) biasanya digunakan dalam Controller untuk menghapus data berdasarkan ID dari database.
     {
         TaskList::findOrFail($id)->delete();
+        //Kode ini digunakan untuk mencari dan menghapus data berdasarkan ID dalam database
 
         return redirect()->back();
+        //Kode ini digunakan untuk mengembalikan pengguna ke halaman sebelumnya setelah suatu proses dijalank
+        //redirect() → Mengarahkan pengguna ke halaman lain.
+        //back() → Mengembalikan pengguna ke halaman sebelumnya
     }
 }
