@@ -56,5 +56,5 @@
                 <button type="submit" class="btn btn-outline-primary">Tambah</button>
             </div>
         </form>
-    </div>
+</div>
 </div>

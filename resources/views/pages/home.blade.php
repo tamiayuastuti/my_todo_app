@@ -91,7 +91,7 @@
         100% {
             box-shadow: 0 0 10px rgba(66, 230, 149, 0.3);
         }
-    }
+    }
 </style>
     <div id="content" class="overflow-y-hidden overflow-x-hidden"> <!--div di gunakan untuk membungkus suatu isi content -->
         @if ($lists->count() == 0)
@@ -109,8 +109,10 @@
                     <div class="card-header bg-primary text-white d-flex align-items-center justify-content-between"> {{-- untuk merubah warna judul // merubah warna text --}}
                         <h4 class="card-title">{{ $list->name }}</h4>
                         <form action="{{ route('lists.destroy', $list->id) }}" method="POST" style="display: inline;">
-                            @csrf
+                            @csrf {{--@csrf digunakan untuk melindungi form dari serangan CSRF (Cross-Site Request Forgery).  
+                            Cara Kerja Saat mengirim data dengan POST, PUT, PATCH, atau DELETE, Laravel membutuhkan token CSRF untuk memastikan permintaan berasal dari sumber yang sah.--}}
                             @method('DELETE')
+                            {{-- @method digunakan dalam form HTML untuk menentukan metode HTTP seperti PUT, PATCH, atau DELETE, karena form HTML hanya mendukung GET dan POST. --}}
                             <button type="submit" class="btn btn-sm p-0"> 
                                 <i class="bi bi-trash fs-5 text-danger"></i>
                             </button>
