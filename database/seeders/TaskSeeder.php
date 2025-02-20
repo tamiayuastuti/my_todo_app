@@ -10,6 +10,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents; //kode ini berfungsi u
 use Illuminate\Database\Seeder; //di gunakan untuk menginfor file yang ada didalam kelas seeder 
 
 class TaskSeeder extends Seeder 
+//untuk mengisi tabel tasks dengan data awal secara otomatis di Laravel.
 {
     /**
      * Run the database seeds.
