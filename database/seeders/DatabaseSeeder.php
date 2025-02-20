@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder 
+//Kode ini digunakan untuk mengisi database dengan data awal (seeding) di Laravel.
 {
     /**
      * Seed the application's database.

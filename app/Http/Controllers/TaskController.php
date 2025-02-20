@@ -133,7 +133,8 @@ class TaskController extends Controller //task controller untuk judul tugas
     //Request $request → Menangkap data yang dikirim oleh pengguna melalui form atau API.
     //Task $task → Model Task, yang otomatis mengambil data task berdasarkan ID yang diberikan.
     {
-        $request->validate([
+        $request->validate([ 
+        //Method ini digunakan untuk memvalidasi data yang dikirim oleh pengguna sebelum diproses lebih lanjut    
             'list_id' => 'required',
             'name' => 'required|max:100',
             'description' => 'max:255',
@@ -141,6 +142,7 @@ class TaskController extends Controller //task controller untuk judul tugas
         ]);
 
         Task::findOrFail($task->id)->update([
+        //de ini digunakan untuk mencari data tugas (task) berdasarkan ID dan memperbarui nilainya    
             'list_id' => $request->list_id,
             'name' => $request->name,
             'description' => $request->description,
