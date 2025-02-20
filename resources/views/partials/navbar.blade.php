@@ -51,7 +51,7 @@
         </div>
             <div class="container d-flex justify-content-center">
                 <a class="navbar-brand fw-bolder" href="#">{{ config('app.name') }}</a>
-           </div>
+        </div>
 
         <div class="navbar-nav align-items-center ms-auto">
             <div class="navbar-nav align-items-center ms-auto">
@@ -66,11 +66,11 @@
                     <div id="notificationDropdown"
                         class="dropdown-menu dropdown-menu-end bg-primary-subtle text-black border-primary-subtle border-7 border-color rounded-3 rounded-bottom m-0">
                         <!-- Menampilkan notifikasi baru yang baru ditambahkan -->
-                        @if(session('newTaskList'))
+                        @if(session('newTaskList')) {{-- @if → Mengecek kondisi. --}}
                             <div class="notification-item bg-primary">
                                 <a href="#">list {{ session('newTaskList')->name }} berhasil di buat</a>
                             </div>
-                        @else
+                        @else  {{-- @else → Jika semua kondisi false, jalankan kode ini. --}}
                             <p>Tidak ada notifikasi.</p>
                         @endif
                     </div>
